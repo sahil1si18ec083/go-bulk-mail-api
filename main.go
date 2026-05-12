@@ -6,7 +6,6 @@ import (
 	"encoding/base64"
 	"fmt"
 	"io"
-	"log"
 	"net/smtp"
 	"os"
 	"path/filepath"
@@ -30,7 +29,7 @@ func main() {
 
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("Error loading .env")
+		fmt.Println(".env file not found, using system env variables")
 	}
 
 	smtpConfig = SMTPConfig{
